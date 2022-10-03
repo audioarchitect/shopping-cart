@@ -6,22 +6,29 @@ This is a very basic shopping cart example that demonstrates the calculation of 
 ## Setup
 Open the zipfie on your computer and in a terminal, cd to the "shopping-cart" directory 
 
-Run: 
+Run npm install:
 > npm install
 
-In the terminal, run:
+Verify Sqlite data is there:
 
 > sqlite 3 shopping-cart.db
 
-In the sqlite console, run the DB creates and inserts in the DB_README.md file
+Run this query to verify that the DB data is in there: 
+
+> select * from cart;
+
+I think it should all be in there since the DB file is in the repo. If it is not, you can run the DB creates and inserts in the DB_README.md file
+
 
 
 ## How to run: 
-- Run the app with: "npm start"
+Start the Node app: 
+> npm start
 
-- Go to: localhost:3000/shopping-cart/1
+In the brower, go to:
+> localhost:3000/shopping-cart/1
 
-I've created shopping carts 1-7, with different discounts applied. 
+I've created shopping carts with IDs 1-7, with different discounts applied. 
 
 
 ## Results
