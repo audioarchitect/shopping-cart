@@ -1,4 +1,4 @@
-const PRINT_LOG = true;
+const PRINT_LOG = false;
 
 /**
  *  Super basic logger. If const set to true, console.log the message

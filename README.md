@@ -45,10 +45,11 @@ http://localhost:3000/shopping-cart/5
 
 Buy 3 pairs of Hane's socks, get 4th free = 1500 (cost of 1 Hanes)
 http://localhost:3000/shopping-cart/6
+{"preDiscountCents":50000,"discountCents":1500,"subtotalCents":48500}
 
 Buy 1 pair of Nike's get Nike socks free = 2500 (Cost of 1 Nike socks)
 http://localhost:3000/shopping-cart/7
-
+{"preDiscountCents":24500,"discountCents":2500,"subtotalCents":22000}
 
 ## About the code
 The entry point is the index.js, which is pretty minimal, and just applies the router settings.  The next file you'll want to look at is routes/routes.js, which handles the HTTP GET request, then calls the service functions to fetch cart items and discount, and then returns the computed subtotal. 
@@ -60,7 +61,7 @@ I kept things pretty minimal in here. In a real world app, I would have created,
 
 There is a very simple cart table. In real life, there would probably be a foreign key that pointed to a user, but that was outside the scope of this exercise. Also, in a real world application, I would probably have the subtotal be a field on cart, and would be updated whenver there was some action on the cart (item added, item removed, quantity changed, discount applied, discount removed), but for the purpose of this exercise, the subtotal was computed whenever the endpoint is called. 
 
-There is a simple item table with price and name, and a join table that provides themany-to-many relationship with cart, and allows quantity to be specified
+There is a simple item table with price and name, and a join table that provides the many-to-many relationship with cart, and allows quantity to be specified
 
 There is also a discount table, with the foreign key for it being in cart.  I considered making a join table which could allow multiple discounts to be stacked if we wanted to do that in the future, but figured it was fine just keeping it locked to one discount. The discountCents and discountPercent to be applied to the whole cart was pretty simple, but I was not sure the best way to accomplish the more complicated discount logic, so they best I could come up with in the time allowed was to make it a JSON string to define a "custom" discount. 
 
@@ -83,3 +84,5 @@ and discountPercent would be 1.0 (100% off)
 ## Other notes
 If I were going to implement allowing a discount to only be used N times, I would create a table with cart_id and discount_id, which would be populated when 
 the discount was used, as in the user checked out and paid, not just applied it to their cart. 
+
+Then, in the endpoint for applying discounts to the cart, it would check if this user/cart had already used this discount in the past. 

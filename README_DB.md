@@ -83,6 +83,6 @@ INSERT INTO discount (description, discountCents, discountPercent, minimumCents)
 INSERT INTO discount (description, custom) VALUES
 ('Buy 3 pairs of Hanes socks, get one pair free', '{"triggerItems":[4],"triggerMinimum":4,"discountItems":[4],"discountMaximum":1,"discountPercent":1}')
 ('Buy 1 pair of Nike shoes, get one pair of Nike socks free','{"triggerItems":[1],"triggerMinimum":1,"discountItems":[3],"discountMaximum":1,"discountPercent":1}')
-('Get 25% off all shoes', '{"triggerItems":[1,2],"discountItems":[1,2],"discountPercent":.25}'),
+('Get 25% off all shoes', {"triggerItems":[1,2],"discountItems":[1,2],"discountPercent":0.25}'),
 ('Get $15 off sock purchase', '{"triggerItems":[3,4],"discountItems":[3,4],"discountCents":1500}');
 
