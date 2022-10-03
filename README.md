@@ -17,9 +17,11 @@ In the sqlite console, run the DB creates and inserts in the DB_README.md file
 
 
 ## How to run: 
-- Run the app with: "> npm start"
+- Run the app with: "npm start"
 
 - Go to: localhost:3000/shopping-cart/1
+
+I've created shopping carts 1-7, with different discounts applied. 
 
 
 ## Results
